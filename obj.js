@@ -4,9 +4,17 @@ module.exports = function modify(srcObject) {
 };
 
 function Modifier(srcObject) {
-  this.src = srcObject;
+  this.src = srcObject || {};
   return this;
 }
+
+Modifier.prototype.copy = function() {
+  var copy = {};
+  for (key in this.src) {
+    copy[key] = this.src[key];
+  }
+  return new Modifier(copy);
+};
 
 Modifier.prototype.to = function(destObject) {
   for (key in this.src) {
@@ -21,6 +29,14 @@ Modifier.prototype.map = function(map) {
       this.src[map[key]] = this.src[key];
     }
     if (map[key] !== key) delete this.src[key];
+  }
+  return this;
+};
+
+Modifier.prototype.each = function(f) {
+  if (!f || 'function' !== typeof f) return this;
+  for (key in this.src) {
+    this.src[key] = f(this.src[key]);
   }
   return this;
 };
@@ -61,6 +77,11 @@ Modifier.prototype.merge = function(obj) {
   return this;
 };
 
-Modifier.prototype.output = function() {
+Modifier.prototype.modify = function(cb) {
+  cb(this.src);
+  return this;
+};
+
+Modifier.prototype.end = function() {
   return this.src;
 };
