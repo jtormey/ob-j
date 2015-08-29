@@ -1,7 +1,7 @@
 {
   "name": "ob-j",
   "version": "0.1.0",
-  "description": "Abstranct object management and transformations",
+  "description": "Abstract object management and transformations",
   "main": "obj.js",
   "repository": "https://github.com/jtormey/ob-j",
   "scripts": {
