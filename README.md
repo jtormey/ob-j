@@ -11,6 +11,10 @@ Abstract object management and transformations
 var obj = require('ob-j');
 ```
 
+## Testing
+
+`$ npm test`
+
 ## Usage
 
 ### Main function
