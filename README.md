@@ -1,4 +1,3 @@
-
 # ob-j
 
 Abstract object management and transformations
@@ -49,12 +48,12 @@ Takes a function `f` that gets passed a single argument: the value of a property
 var o = obj(x).end();
 ```
 
-Just returns whatever object is at the end of the current chain. In the above example it returns object `o`. No methods can be chained on after this one (see `.output` if you want to have the option to continue chaining).
+Just returns whatever object is at the end of the current chain. In the above example it returns object `o`. No methods can be chained on after this one.
 
 ### exclude
 
 ```js
-obj(x).exclude('name');
+obj(x).exclude('prop');
 ```
 
 Deletes the properties in object `x` that match the value passed into `.exclude()`. This method can also take an array of values to exclude.
