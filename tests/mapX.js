@@ -1,7 +1,7 @@
 var expect = require('chai').expect,
     obj = require('../obj.js');
 
-describe('#map()', function() {
+describe('#mapX()', function() {
 
   var o;
 
@@ -19,20 +19,20 @@ describe('#map()', function() {
   });
 
   it('should map all of the properties', function() {
-    obj(o).map(map);
+    obj(o).mapX(map);
     expect(o.A).to.equal(1);
     expect(o.B).to.equal(2);
   });
 
   it('should replace old properties', function() {
-    obj(o).map(map);
+    obj(o).mapX(map);
     expect(o.a).to.be.undefined;
     expect(o.b).to.be.undefined;
   });
 
-  it('should still include properties not specified in the map', function() {
-    obj(o).map(map);
-    expect(o.c).to.equal(3);
+  it('should not include properties not specified in the map', function() {
+    obj(o).mapX(map);
+    expect(o.c).to.be.undefined;
   });
 
 });

@@ -27,6 +27,16 @@ Modifier.prototype.map = function(map) {
   for (key in this.src) {
     if (map[key]) {
       this.src[map[key]] = this.src[key];
+      if (map[key] !== key) delete this.src[key];
+    }
+  }
+  return this;
+};
+
+Modifier.prototype.mapX = function(map) {
+  for (key in this.src) {
+    if (map[key]) {
+      this.src[map[key]] = this.src[key];
     }
     if (map[key] !== key) delete this.src[key];
   }

@@ -72,7 +72,15 @@ Deletes all properties in object `x` except those that match the value passed in
 obj(x).map(o);
 ```
 
-Maps the property names of object `x` using the key-value pairs of object `o`. Only properties specified in the mapping object are kept.
+Maps the property names of object `x` using the key-value pairs of object `o`. Properties not in the mapping object will remain.
+
+### mapX
+
+```js
+obj(x).mapX(o);
+```
+
+Maps the property names of object `x` using the key-value pairs of object `o` exclusively. Only properties specified in the mapping object are kept.
 
 ### modify
 
