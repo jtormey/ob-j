@@ -71,6 +71,15 @@ Modifier.prototype.filter = function(filters) {
   return this;
 };
 
+Modifier.prototype.filterFalsy = function() {
+  for (key in this.src) {
+    if (!this.src[key]) {
+      delete this.src[key];
+    }
+  }
+  return this;
+};
+
 Modifier.prototype.insert = function(obj) {
   for (key in obj) {
     if (this.src[key] === undefined) {
