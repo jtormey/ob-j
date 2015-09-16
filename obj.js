@@ -80,6 +80,15 @@ Modifier.prototype.filterFalsy = function() {
   return this;
 };
 
+Modifier.prototype.filterNull = function() {
+  for (key in this.src) {
+    if (this.src[key] == null) {
+      delete this.src[key];
+    }
+  }
+  return this;
+};
+
 Modifier.prototype.insert = function(obj) {
   for (key in obj) {
     if (this.src[key] === undefined) {

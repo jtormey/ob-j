@@ -3,7 +3,7 @@ var expect = require('chai').expect,
 
 describe('#filterFalsy()', function() {
 
-  var o;
+  var oF, oT;
 
   beforeEach(function() {
     oF = {
